@@ -1,0 +1,26 @@
+listen:
+  host: 0.0.0.0
+  port: 8192
+
+storage:
+  dir: /opt/notebooks
+
+kernels:
+  scala:
+    language: scala
+    scalaVersion: "2.12"
+    classPath:
+      - "/opt/spark/jars/*"
+    env:
+      SPARK_HOME: /opt/spark
+      JAVA_HOME: /usr/lib/jvm/java-11-openjdk-amd64
+
+spark:
+  spark.master: "spark://spark-master:7077"
+  spark.app.name: "Polynote"
+  spark.submit.deployMode: "client"
+  
+  spark.jars.packages: "com.datastax.spark:spark-cassandra-connector_2.12:3.5.1"
+  
+  spark.cassandra.connection.host: "cassandra-node"
+  spark.cassandra.connection.port: "9042"
