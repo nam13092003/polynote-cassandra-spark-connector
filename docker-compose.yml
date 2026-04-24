@@ -26,6 +26,8 @@ services:
       - spark-network
     depends_on:
       - cassandra-node
+    volumes:
+      - ./notebooks:/opt/notebooks
 
   spark-worker:
     image: docker.io/bitnamilegacy/spark:3.5.1
@@ -44,6 +46,8 @@ services:
       - spark-network
     depends_on:
       - spark
+    volumes:
+      - ./notebooks:/opt/notebooks
 
   polynote:
     build:
